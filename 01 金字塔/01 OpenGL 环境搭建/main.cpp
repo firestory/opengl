@@ -22,7 +22,7 @@ GLFrustum			viewFrustum;
 
 GLBatch             pyramidBatch;
 
-//纹理变量，一般使用无符号整
+//纹理变量，一般使用无符号整型
 GLuint              textureID;
 
 GLGeometryTransform	transformPipeline;
