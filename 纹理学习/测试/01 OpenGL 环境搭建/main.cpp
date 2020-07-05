@@ -218,7 +218,7 @@ bool LoadTGATexture(const char *szFileName, GLenum minFilter, GLenum magFilter, 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter);
     
-
+    
     //3.载入纹理
     //参数1：纹理维度
     //参数2：mip贴图层次
@@ -235,7 +235,7 @@ bool LoadTGATexture(const char *szFileName, GLenum minFilter, GLenum magFilter, 
     //使用完毕释放pBits
     free(pBits);
     
-    
+     
     //4.加载Mip,纹理生成所有的Mip层
     //参数：GL_TEXTURE_1D、GL_TEXTURE_2D、GL_TEXTURE_3D
     glGenerateMipmap(GL_TEXTURE_2D);
@@ -362,7 +362,7 @@ void SpecialKeys(int key, int x, int y)
 void ChangeSize(int w, int h)
 {
     //1.设置视口
-    glViewport(0, 0, w, h);
+//    glViewport(0, 0, w, h);
     
     //2.创建投影矩阵
     viewFrustum.SetPerspective(35.0f, float(w) / float(h), 1.0f, 500.0f);
