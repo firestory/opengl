@@ -21,12 +21,19 @@ GLFrame             objectFrame;
 GLFrustum			viewFrustum;
 
 GLBatch             pyramidBatch;
+GLBatch             floorBatch;
+GLTriangleBatch     sphereBatch;
 
 //纹理变量，一般使用无符号整型a
 GLuint              textureID;
 
 GLGeometryTransform	transformPipeline;
 M3DMatrix44f		shadowMatrix;
+
+#define NUM_SPHERES 50
+GLFrame spheres[NUM_SPHERES];
+
+
 
 //绘制金字塔
 void MakePyramid(GLBatch& pyramidBatch)
@@ -249,7 +256,7 @@ bool LoadTGATexture(const char *szFileName, GLenum minFilter, GLenum magFilter, 
 void SetupRC()
 {
     //1.
-    glClearColor(0.7f, 0.7f, 0.7f, 1.0f );
+    glClearColor(0, 0, 0, 0 );
     shaderManager.InitializeStockShaders();
     
     //2.
@@ -269,11 +276,38 @@ void SetupRC()
     //4.创造金字塔pyramidBatch
     MakePyramid(pyramidBatch);
     
+    //3. 设置地板顶点数据
+    floorBatch.Begin(GL_LINES, 324);
+    for(GLfloat x = -20.0; x <= 20.0f; x+= 0.5) {
+        floorBatch.Vertex3f(x, -0.55f, 20.0f);
+        floorBatch.Vertex3f(x, -0.55f, -20.0f);
+        
+        floorBatch.Vertex3f(20.0f, -0.55f, x);
+        floorBatch.Vertex3f(-20.0f, -0.55f, x);
+    }
+    floorBatch.End();
+
+    
+    gltMakeSphere(sphereBatch, 0.1f, 26, 13);
+    //6. 随机位置放置小球球
+    for (int i = 0; i < NUM_SPHERES; i++) {
+        
+        //y轴不变，X,Z产生随机值
+        GLfloat x = ((GLfloat)((rand() % 400) - 200 ) * 0.1f);
+        GLfloat z = ((GLfloat)((rand() % 400) - 200 ) * 0.1f);
+        
+        //在y方向，将球体设置为0.0的位置，这使得它们看起来是飘浮在眼睛的高度
+        //对spheres数组中的每一个顶点，设置顶点数据
+        spheres[i].SetOrigin(x, 0.0f, z);
+    }
+
+    
     //5.
     /**相机frame MoveForward(平移)
     参数1：Z，深度（屏幕到图形的Z轴距离）
      */
     cameraFrame.MoveForward(-10);
+    
 }
 
 
@@ -284,31 +318,38 @@ void ShutdownRC(void)
     glDeleteTextures(1, &textureID);
 }
 
-void RenderScene(void)
+void reshapeFunc(void)
 {
     //1.颜色值&光源位置
     static GLfloat vLightPos [] = { 1.0f, 1.0f, 0.0f };
     static GLfloat vWhite [] = { 1.0f, 1.0f, 1.0f, 1.0f };
+    static GLfloat vFloorColor [] = { 1.0f, 1.0f, 1.0f, 1.0f };
+    static GLfloat vSphereColor[] = { 0.0f, 0.0f, 1.0f, 1.0f};
     
     //2.清理缓存区
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+    
+    glEnable(GL_DEPTH_TEST);
     
     //3.当前模型视频压栈
     modelViewMatrix.PushMatrix();
     
     //添加照相机矩阵
     M3DMatrix44f mCamera;
-    //从camraFrame中获取一个4*4的矩阵
     cameraFrame.GetCameraMatrix(mCamera);
-    //矩阵乘以矩阵堆栈顶部矩阵，相乘结果存储到堆栈的顶部 将照相机矩阵 与 当前模型矩阵相乘 压入栈顶
     modelViewMatrix.MultMatrix(mCamera);
-    
+
     //创建mObjectFrame矩阵
     M3DMatrix44f mObjectFrame;
-    //从objectFrame中获取矩阵，objectFrame保存的是特殊键位的变换矩阵
     objectFrame.GetMatrix(mObjectFrame);
-    //矩阵乘以矩阵堆栈顶部矩阵，相乘结果存储到堆栈的顶部 将世界变换矩阵 与 当前模型矩阵相乘 压入栈顶
     modelViewMatrix.MultMatrix(mObjectFrame);
+
+        
+    
+    shaderManager.UseStockShader(GLT_SHADER_FLAT,
+    transformPipeline.GetModelViewProjectionMatrix(),
+    vFloorColor);
+    floorBatch.Draw();
     
     //4.绑定纹理，因为我们的项目中只有一个纹理。如果有多个纹理。绑定纹理很重要
     glBindTexture(GL_TEXTURE_2D, textureID);
@@ -329,8 +370,26 @@ void RenderScene(void)
     //pyramidBatch 绘制
     pyramidBatch.Draw();
     
+    
+    for (int i = 0; i < NUM_SPHERES; i++) {
+        modelViewMatrix.PushMatrix();
+        modelViewMatrix.MultMatrix(spheres[i]);
+//        shaderManager.UseStockShader(GLT_SHADER_POINT_LIGHT_DIFF, transformPipeline.GetModelViewMatrix(),
+//                                     transformPipeline.GetProjectionMatrix(), vLightPos, vSphereColor);
+        shaderManager.UseStockShader(GLT_SHADER_TEXTURE_POINT_LIGHT_DIFF,
+                                       transformPipeline.GetModelViewMatrix(),
+                                       transformPipeline.GetProjectionMatrix(),
+                                       vLightPos, vWhite, 0);
+        sphereBatch.Draw();
+        modelViewMatrix.PopMatrix();
+        
+    }
+    
     //模型视图出栈，恢复矩阵（push一次就要pop一次）
     modelViewMatrix.PopMatrix();
+    
+    
+    
     
     //6.交换缓存区
     glutSwapBuffers();
@@ -341,16 +400,21 @@ void RenderScene(void)
 void SpecialKeys(int key, int x, int y)
 {
     if(key == GLUT_KEY_UP)
-        objectFrame.RotateWorld(m3dDegToRad(-5.0f), 1.0f, 0.0f, 0.0f);
+        cameraFrame.RotateWorld(m3dDegToRad(-5.0f), 1.0f, 0.0f, 0.0f);
+//    objectFrame.RotateWorld(m3dDegToRad(-5.0f), 1.0f, 0.0f, 0.0f);
     
     if(key == GLUT_KEY_DOWN)
-        objectFrame.RotateWorld(m3dDegToRad(5.0f), 1.0f, 0.0f, 0.0f);
+        cameraFrame.RotateWorld(m3dDegToRad(5.0f), 1.0f, 0.0f, 0.0f);
+//    objectFrame.RotateWorld(m3dDegToRad(5.0f), 1.0f, 0.0f, 0.0f);
     
     if(key == GLUT_KEY_LEFT)
-        objectFrame.RotateWorld(m3dDegToRad(-5.0f), 0.0f, 1.0f, 0.0f);
+                cameraFrame.RotateWorld(m3dDegToRad(5.0f), 0.0f, 1.0f, 0.0f);
+//            objectFrame.RotateWorld(m3dDegToRad(5.0f), 0.0f, 1.0f, 0.0f);
     
     if(key == GLUT_KEY_RIGHT)
-        objectFrame.RotateWorld(m3dDegToRad(5.0f), 0.0f, 1.0f, 0.0f);
+    
+            cameraFrame.RotateWorld(m3dDegToRad(-5.0f), 0.0f, 1.0f, 0.0f);
+//        objectFrame.RotateWorld(m3dDegToRad(-5.0f), 0.0f, 1.0f, 0.0f);
     
     glutPostRedisplay();
 }
@@ -365,15 +429,8 @@ void ChangeSize(int w, int h)
 //    glViewport(0, 0, w, h);
     
     //2.创建投影矩阵
-    viewFrustum.SetPerspective(35.0f, float(w) / float(h), 1.0f, 500.0f);
-  
-    //viewFrustum.GetProjectionMatrix()  获取viewFrustum投影矩阵
-    //并将其加载到投影矩阵堆栈上
+    viewFrustum.SetPerspective(25.0f, float(w) / float(h), 1.0f, 500.0f);
     projectionMatrix.LoadMatrix(viewFrustum.GetProjectionMatrix());
-    
-    //3.设置变换管道以使用两个矩阵堆栈（变换矩阵modelViewMatrix ，投影矩阵projectionMatrix）
-    //初始化GLGeometryTransform 的实例transformPipeline.通过将它的内部指针设置为模型视图矩阵堆栈 和 投影矩阵堆栈实例，来完成初始化
-    //当然这个操作也可以在SetupRC 函数中完成，但是在窗口大小改变时或者窗口创建时设置它们并没有坏处。而且这样可以一次性完成矩阵和管线的设置。
     transformPipeline.SetMatrixStacks(modelViewMatrix, projectionMatrix);
 }
 
@@ -388,7 +445,7 @@ int main(int argc, char* argv[])
     glutCreateWindow("Pyramid");
     glutReshapeFunc(ChangeSize);
     glutSpecialFunc(SpecialKeys);
-    glutDisplayFunc(RenderScene);
+    glutDisplayFunc(reshapeFunc);
     
     GLenum err = glewInit();
     if (GLEW_OK != err) {
