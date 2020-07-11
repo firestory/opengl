@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		62E4BB7C24B8A2C80073DF9A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62E4BB7B24B8A2C80073DF9A /* main.cpp */; };
+		62E4BB9724B8A3790073DF9A /* freeglut.h in Sources */ = {isa = PBXBuildFile; fileRef = 62E4BB9324B8A3510073DF9A /* freeglut.h */; };
+		62E4BB9924B8A3A20073DF9A /* libglut.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4BB8D24B8A3480073DF9A /* libglut.a */; };
+		62E4BB9C24B8AAA30073DF9A /* OpenGL.framework in Sources */ = {isa = PBXBuildFile; fileRef = 62E4BB9A24B8AA9B0073DF9A /* OpenGL.framework */; };
+		62E4BB9D24B8AAB40073DF9A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62E4BB9A24B8AA9B0073DF9A /* OpenGL.framework */; };
+		62E4BBAE24B8AD4F0073DF9A /* glew.h in Sources */ = {isa = PBXBuildFile; fileRef = 62E4BBA524B8AD1C0073DF9A /* glew.h */; };
+		62E4BBAF24B8AD990073DF9A /* GLTools.h in Sources */ = {isa = PBXBuildFile; fileRef = 62E4BBA824B8AD1C0073DF9A /* GLTools.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		62E4BB7624B8A2C80073DF9A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		62E4BB7824B8A2C80073DF9A /* freeglut */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = freeglut; sourceTree = BUILT_PRODUCTS_DIR; };
+		62E4BB7B24B8A2C80073DF9A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		62E4BB8424B8A3480073DF9A /* libglut.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglut.dylib; sourceTree = "<group>"; };
+		62E4BB8624B8A3480073DF9A /* glut.pc */ = {isa = PBXFileReference; lastKnownFileType = text; path = glut.pc; sourceTree = "<group>"; };
+		62E4BB8924B8A3480073DF9A /* FreeGLUTConfigVersion.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = FreeGLUTConfigVersion.cmake; sourceTree = "<group>"; };
+		62E4BB8A24B8A3480073DF9A /* FreeGLUTTargets.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = FreeGLUTTargets.cmake; sourceTree = "<group>"; };
+		62E4BB8B24B8A3480073DF9A /* FreeGLUTConfig.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = FreeGLUTConfig.cmake; sourceTree = "<group>"; };
+		62E4BB8C24B8A3480073DF9A /* FreeGLUTTargets-noconfig.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = "FreeGLUTTargets-noconfig.cmake"; sourceTree = "<group>"; };
+		62E4BB8D24B8A3480073DF9A /* libglut.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglut.a; sourceTree = "<group>"; };
+		62E4BB8E24B8A3480073DF9A /* libglut.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglut.3.dylib; sourceTree = "<group>"; };
+		62E4BB8F24B8A3480073DF9A /* libglut.3.11.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglut.3.11.0.dylib; sourceTree = "<group>"; };
+		62E4BB9224B8A3510073DF9A /* glut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glut.h; sourceTree = "<group>"; };
+		62E4BB9324B8A3510073DF9A /* freeglut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = freeglut.h; sourceTree = "<group>"; };
+		62E4BB9424B8A3510073DF9A /* freeglut_ucall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = freeglut_ucall.h; sourceTree = "<group>"; };
+		62E4BB9524B8A3510073DF9A /* freeglut_ext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = freeglut_ext.h; sourceTree = "<group>"; };
+		62E4BB9624B8A3510073DF9A /* freeglut_std.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = freeglut_std.h; sourceTree = "<group>"; };
+		62E4BB9A24B8AA9B0073DF9A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		62E4BB9F24B8AD1C0073DF9A /* GLMatrixStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLMatrixStack.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLMatrixStack.h"; sourceTree = "<group>"; };
+		62E4BBA024B8AD1C0073DF9A /* GLFrustum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLFrustum.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLFrustum.h"; sourceTree = "<group>"; };
+		62E4BBA124B8AD1C0073DF9A /* GLGeometryTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLGeometryTransform.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLGeometryTransform.h"; sourceTree = "<group>"; };
+		62E4BBA324B8AD1C0073DF9A /* glxew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glxew.h; sourceTree = "<group>"; };
+		62E4BBA424B8AD1C0073DF9A /* wglew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wglew.h; sourceTree = "<group>"; };
+		62E4BBA524B8AD1C0073DF9A /* glew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
+		62E4BBA624B8AD1C0073DF9A /* GLBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLBatch.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLBatch.h"; sourceTree = "<group>"; };
+		62E4BBA724B8AD1C0073DF9A /* GLShaderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLShaderManager.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLShaderManager.h"; sourceTree = "<group>"; };
+		62E4BBA824B8AD1C0073DF9A /* GLTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLTools.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLTools.h"; sourceTree = "<group>"; };
+		62E4BBA924B8AD1C0073DF9A /* math3d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = math3d.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/math3d.h"; sourceTree = "<group>"; };
+		62E4BBAA24B8AD1C0073DF9A /* GLBatchBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLBatchBase.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLBatchBase.h"; sourceTree = "<group>"; };
+		62E4BBAB24B8AD1C0073DF9A /* StopWatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StopWatch.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/StopWatch.h"; sourceTree = "<group>"; };
+		62E4BBAC24B8AD1C0073DF9A /* GLTriangleBatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLTriangleBatch.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLTriangleBatch.h"; sourceTree = "<group>"; };
+		62E4BBAD24B8AD1C0073DF9A /* GLFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLFrame.h; path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GLFrame.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62E4BB7524B8A2C80073DF9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62E4BB9D24B8AAB40073DF9A /* OpenGL.framework in Frameworks */,
+				62E4BB9924B8A3A20073DF9A /* libglut.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		62E4BB6F24B8A2C80073DF9A = {
+			isa = PBXGroup;
+			children = (
+				62E4BB9E24B8AD0E0073DF9A /* glew */,
+				62E4BB8224B8A31E0073DF9A /* glut */,
+				62E4BB7A24B8A2C80073DF9A /* freeglut */,
+				62E4BB7924B8A2C80073DF9A /* Products */,
+				62E4BB9824B8A3A20073DF9A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		62E4BB7924B8A2C80073DF9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB7824B8A2C80073DF9A /* freeglut */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62E4BB7A24B8A2C80073DF9A /* freeglut */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB7B24B8A2C80073DF9A /* main.cpp */,
+			);
+			path = freeglut;
+			sourceTree = "<group>";
+		};
+		62E4BB8224B8A31E0073DF9A /* glut */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB9024B8A3510073DF9A /* include */,
+				62E4BB8324B8A3480073DF9A /* lib */,
+			);
+			path = glut;
+			sourceTree = "<group>";
+		};
+		62E4BB8324B8A3480073DF9A /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB8424B8A3480073DF9A /* libglut.dylib */,
+				62E4BB8524B8A3480073DF9A /* pkgconfig */,
+				62E4BB8724B8A3480073DF9A /* cmake */,
+				62E4BB8D24B8A3480073DF9A /* libglut.a */,
+				62E4BB8E24B8A3480073DF9A /* libglut.3.dylib */,
+				62E4BB8F24B8A3480073DF9A /* libglut.3.11.0.dylib */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		62E4BB8524B8A3480073DF9A /* pkgconfig */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB8624B8A3480073DF9A /* glut.pc */,
+			);
+			path = pkgconfig;
+			sourceTree = "<group>";
+		};
+		62E4BB8724B8A3480073DF9A /* cmake */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB8824B8A3480073DF9A /* FreeGLUT */,
+			);
+			path = cmake;
+			sourceTree = "<group>";
+		};
+		62E4BB8824B8A3480073DF9A /* FreeGLUT */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB8924B8A3480073DF9A /* FreeGLUTConfigVersion.cmake */,
+				62E4BB8A24B8A3480073DF9A /* FreeGLUTTargets.cmake */,
+				62E4BB8B24B8A3480073DF9A /* FreeGLUTConfig.cmake */,
+				62E4BB8C24B8A3480073DF9A /* FreeGLUTTargets-noconfig.cmake */,
+			);
+			path = FreeGLUT;
+			sourceTree = "<group>";
+		};
+		62E4BB9024B8A3510073DF9A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB9124B8A3510073DF9A /* GL */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		62E4BB9124B8A3510073DF9A /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB9224B8A3510073DF9A /* glut.h */,
+				62E4BB9324B8A3510073DF9A /* freeglut.h */,
+				62E4BB9424B8A3510073DF9A /* freeglut_ucall.h */,
+				62E4BB9524B8A3510073DF9A /* freeglut_ext.h */,
+				62E4BB9624B8A3510073DF9A /* freeglut_std.h */,
+			);
+			path = GL;
+			sourceTree = "<group>";
+		};
+		62E4BB9824B8A3A20073DF9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BB9A24B8AA9B0073DF9A /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62E4BB9E24B8AD0E0073DF9A /* glew */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BBA224B8AD1C0073DF9A /* GL */,
+				62E4BBA624B8AD1C0073DF9A /* GLBatch.h */,
+				62E4BBAA24B8AD1C0073DF9A /* GLBatchBase.h */,
+				62E4BBAD24B8AD1C0073DF9A /* GLFrame.h */,
+				62E4BBA024B8AD1C0073DF9A /* GLFrustum.h */,
+				62E4BBA124B8AD1C0073DF9A /* GLGeometryTransform.h */,
+				62E4BB9F24B8AD1C0073DF9A /* GLMatrixStack.h */,
+				62E4BBA724B8AD1C0073DF9A /* GLShaderManager.h */,
+				62E4BBA824B8AD1C0073DF9A /* GLTools.h */,
+				62E4BBAC24B8AD1C0073DF9A /* GLTriangleBatch.h */,
+				62E4BBA924B8AD1C0073DF9A /* math3d.h */,
+				62E4BBAB24B8AD1C0073DF9A /* StopWatch.h */,
+			);
+			path = glew;
+			sourceTree = "<group>";
+		};
+		62E4BBA224B8AD1C0073DF9A /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				62E4BBA324B8AD1C0073DF9A /* glxew.h */,
+				62E4BBA424B8AD1C0073DF9A /* wglew.h */,
+				62E4BBA524B8AD1C0073DF9A /* glew.h */,
+			);
+			name = GL;
+			path = "../../../纹理学习/金字塔绘制指定纹理/01 OpenGL 环境搭建/include/GL";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62E4BB7724B8A2C80073DF9A /* freeglut */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62E4BB7F24B8A2C80073DF9A /* Build configuration list for PBXNativeTarget "freeglut" */;
+			buildPhases = (
+				62E4BB7424B8A2C80073DF9A /* Sources */,
+				62E4BB7524B8A2C80073DF9A /* Frameworks */,
+				62E4BB7624B8A2C80073DF9A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = freeglut;
+			productName = freeglut;
+			productReference = 62E4BB7824B8A2C80073DF9A /* freeglut */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		62E4BB7024B8A2C80073DF9A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = zengfandi;
+				TargetAttributes = {
+					62E4BB7724B8A2C80073DF9A = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = 62E4BB7324B8A2C80073DF9A /* Build configuration list for PBXProject "freeglut" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 62E4BB6F24B8A2C80073DF9A;
+			productRefGroup = 62E4BB7924B8A2C80073DF9A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				62E4BB7724B8A2C80073DF9A /* freeglut */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62E4BB7424B8A2C80073DF9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62E4BBAF24B8AD990073DF9A /* GLTools.h in Sources */,
+				62E4BBAE24B8AD4F0073DF9A /* glew.h in Sources */,
+				62E4BB9C24B8AAA30073DF9A /* OpenGL.framework in Sources */,
+				62E4BB9724B8A3790073DF9A /* freeglut.h in Sources */,
+				62E4BB7C24B8A2C80073DF9A /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		62E4BB7D24B8A2C80073DF9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		62E4BB7E24B8A2C80073DF9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		62E4BB8024B8A2C80073DF9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/glut/lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		62E4BB8124B8A2C80073DF9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/glut/lib",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		62E4BB7324B8A2C80073DF9A /* Build configuration list for PBXProject "freeglut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62E4BB7D24B8A2C80073DF9A /* Debug */,
+				62E4BB7E24B8A2C80073DF9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62E4BB7F24B8A2C80073DF9A /* Build configuration list for PBXNativeTarget "freeglut" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62E4BB8024B8A2C80073DF9A /* Debug */,
+				62E4BB8124B8A2C80073DF9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 62E4BB7024B8A2C80073DF9A /* Project object */;
+}
