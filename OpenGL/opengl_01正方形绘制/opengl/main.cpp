@@ -14,7 +14,7 @@
 
 GLShaderManager shaderManager;
 GLBatch triangleBatch;
-GLfloat blockSize = 0.1f;
+GLfloat blockSize = 0.25f;
 
 //正方形的4个点坐标
 GLfloat vVerts[] = {
@@ -97,19 +97,19 @@ void SpecialKeys(int key, int x, int y){
     // Recalculate vertex positions
     vVerts[0] = blockX;
     vVerts[1] = blockY - blockSize*2;
-    printf("(%f,%f)\n",vVerts[0],vVerts[1]);
+//    printf("(%f,%f)\n",vVerts[0],vVerts[1]);
     
     vVerts[3] = blockX + blockSize*2;
     vVerts[4] = blockY - blockSize*2;
-    printf("(%f,%f)\n",vVerts[3],vVerts[4]);
+//    printf("(%f,%f)\n",vVerts[3],vVerts[4]);
     
     vVerts[6] = blockX + blockSize*2;
     vVerts[7] = blockY;
-    printf("(%f,%f)\n",vVerts[6],vVerts[7]);
+//    printf("(%f,%f)\n",vVerts[6],vVerts[7]);
     
     vVerts[9] = blockX;
     vVerts[10] = blockY;
-    printf("(%f,%f)\n",vVerts[9],vVerts[10]);
+//    printf("(%f,%f)\n",vVerts[9],vVerts[10]);
     triangleBatch.CopyVertexData3f(vVerts);
     glutPostRedisplay();
 }
