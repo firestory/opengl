@@ -219,7 +219,7 @@ void SetupRC()
     }
     floorBatch.End();
    
-   //参考PPT图6-11
+   //
     ceilingBatch.Begin(GL_TRIANGLE_STRIP, 28, 1);
     for(z = 60.0f; z >= 0.0f; z -=10.0f)
     {
@@ -237,7 +237,7 @@ void SetupRC()
     }
     ceilingBatch.End();
     
-    //参考PPT图6-12
+    //
     leftWallBatch.Begin(GL_TRIANGLE_STRIP, 28, 1);
     for(z = 60.0f; z >= 0.0f; z -=10.0f)
     {
@@ -255,7 +255,7 @@ void SetupRC()
     }
     leftWallBatch.End();
    
-   //参考PPT图6-13
+   //
     rightWallBatch.Begin(GL_TRIANGLE_STRIP, 28, 1);
     for(z = 60.0f; z >= 0.0f; z -=10.0f)
     {
