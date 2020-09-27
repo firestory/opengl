@@ -16,16 +16,17 @@
 - (void)layoutSubviews
 {
     [self setupLayer];
-    
+
     [self setupContext];
-    
+
     [self deleteRenderAndFrameBuffer];
-    
+
     [self setupRenderBuffer];
-    
+
     [self setupFrameBuffer];
-    
+
     [self renderLayer];
+    
 }
 
 
@@ -85,23 +86,38 @@
     
     GLuint position = glGetAttribLocation(self.myPrograme, "position");
     glEnableVertexAttribArray(position);
-    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, NULL);
+    glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, (float *)NULL);
     
     GLuint texCoord = glGetAttribLocation(self.myPrograme, "textCoordinate");
     glEnableVertexAttribArray(texCoord);
     glVertexAttribPointer(texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 5, (float *)NULL + 3);
 
     [self setupTexture:@"bg"];
-//    [self setupTexture:@"kunkun"];
-     
-    glUniform1i(glGetUniformLocation(self.myPrograme, "colorMap"), 0);
+    
+    [self rotateTextureImage];
     
     glDrawArrays(GL_TRIANGLES, 0, 6);
     [self.myContext presentRenderbuffer:GL_RENDERBUFFER];
 }
 
-
-
+-(void)rotateTextureImage
+{
+    GLuint rotate = glGetUniformLocation(self.myPrograme, "rotateMatrix");
+    
+    float radians = 180 * 3.14159f / 180.0f;
+    float s = sin(radians);
+    float c = cos(radians);
+    
+    GLfloat zRotation[16] = {
+        c,-s,0,0,
+        s,c,0,0,
+        0,0,1,0,
+        0,0,0,1
+    };
+    
+    glUniformMatrix4fv(rotate, 1, GL_FALSE, zRotation);
+    
+}
 
 - (GLuint)setupTexture:(NSString *)fileName
 {
@@ -112,11 +128,14 @@
     size_t height = CGImageGetHeight(simage);
     
     GLubyte *sdata = (GLubyte *)calloc(width * height * 4, sizeof(GLubyte));
+    
     CGContextRef scontext = CGBitmapContextCreate(sdata, width, height, 8, width * 4, CGImageGetColorSpace(simage), kCGImageAlphaPremultipliedLast);
+    
     CGRect rect = CGRectMake(0, 0, width, height);
     CGContextDrawImage(scontext, rect, simage);
     CGContextRelease(scontext);
     
+    glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE, 0);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -127,6 +146,7 @@
     float fw = width, fh = height;
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, fw, fh, 0, GL_RGBA, GL_UNSIGNED_BYTE, sdata);
     
+    glUniform1i(glGetUniformLocation(self.myPrograme, "colorMap"), 0);
     free(sdata);
     
     return 0;
